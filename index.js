@@ -6,6 +6,11 @@ const playerScoreEl = document.getElementById("user-score");
 
 const computerScoreEl = document.getElementById("computer-score");
 
+const choixPlayer = document.getElementById("choixPlayer");
+
+const choixComputer = document.getElementById("choixComputer");
+
+const choix = { rock: "&#x1F44A;", paper: "&#x1f590;", scissors: "&#x270c;" };
 let playerScore = 0;
 let computerScore = 0;
 
@@ -23,6 +28,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+	choixPlayer.innerHTML = choix[playerSelection];
+	choixComputer.innerHTML = choix[computerSelection];
 	if (playerSelection === computerSelection) {
 		return "It's a tie!";
 	} else if (
@@ -32,10 +39,10 @@ function playRound(playerSelection, computerSelection) {
 	) {
 		playerScore++;
 		playerScoreEl.textContent = playerScore;
-		return "You win! " + playerSelection + " beats " + computerSelection;
+		return "You win! ";
 	} else {
 		computerScore++;
 		computerScoreEl.textContent = computerScore;
-		return "You lose! " + computerSelection + " beats " + playerSelection;
+		return "You lose! ";
 	}
 }
